@@ -6,7 +6,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import java.util.Optional;
 
 @Rule(order = 1)
-public class RN_ValidacionEdad {
+public class RN02_ValidacionEdad {
 	
 	@Given("Edad")
 	private Fact<Integer> Edad;

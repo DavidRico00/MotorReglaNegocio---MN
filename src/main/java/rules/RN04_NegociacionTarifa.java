@@ -6,7 +6,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import java.util.Optional;
 
 @Rule(order = 4)
-public class RN_NegociacionTarifa {
+public class RN04_NegociacionTarifa {
 
     @Given("tarifa")
     private Fact<Double> tarifa; // Tarifa negociada

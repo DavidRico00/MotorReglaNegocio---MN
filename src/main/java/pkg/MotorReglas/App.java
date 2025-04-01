@@ -13,11 +13,11 @@ public class App
     	 RuleBook ruleBook = new RuleBookRunner("rules");
          NameValueReferableMap<Object> facts = new FactMap<>();
 
-         //RN_ValidacionEdad
+         //RN02_ValidacionEdad
          facts.setValue("Edad", 17);
          facts.setValue("okey", 0);
 
-        //RN_ConfirmacionEvento
+        //RN03_ConfirmacionEvento
         facts.setValue("confirmada", true);  
         facts.setValue("accion", "modificar"); // Puede ser "modificar" o "cancelar"
         facts.setValue("notificacion", true); 

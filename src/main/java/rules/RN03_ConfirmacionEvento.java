@@ -6,7 +6,7 @@ import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import java.util.Optional;
 
 @Rule(order = 1)
-public class RN_ConfirmacionEvento {
+public class RN03_ConfirmacionEvento {
 	
 	@Given("Confirmada")
 	private Fact<Boolean> Confirmada;
