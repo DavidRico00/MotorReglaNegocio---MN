@@ -3,7 +3,6 @@ package pkg.MotorReglas;
 import com.deliveredtechnologies.rulebook.FactMap;
 import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.model.RuleBook;
-import java.util.Optional;
 import com.deliveredtechnologies.rulebook.model.runner.RuleBookRunner;
 
 
@@ -13,6 +12,7 @@ public class App
     {
     	 RuleBook ruleBook = new RuleBookRunner("rules");
          NameValueReferableMap<Object> facts = new FactMap<>();
+
          //RN_ValidacionEdad
          facts.setValue("Edad", 17);
          facts.setValue("okey", 0);
@@ -30,6 +30,18 @@ public class App
         //RN_ValidacionLicencia
          facts.setValue("ok", false);
          facts.setValue("licencia", true);
+         
+         facts.setValue("ok5", false);
+         facts.setValue("ok6", false);
+         facts.setValue("ok7", false);
+         facts.setValue("ok8", -1);
+         facts.setValue("ok9", -1);
+         
+         Evento evento = new Evento(null, null, true, 1, -2, false);
+         facts.setValue("evento", evento);
+         
+         GrupoMusical grupoMusical = new GrupoMusical(null, "Grupo1", "Pop", 350, 4);
+         facts.setValue("grupoMusical", grupoMusical);
 
          ruleBook.run(facts);
 
@@ -43,5 +55,12 @@ public class App
          System.out.println("El bar" + (ok?" tiene licencia" : " no tiene licencia"));
          System.out.println("¿Se requiere notificación? " + (Notificacion ? " Sí" : " No"));
          System.out.println("¿Se ha confirmado el acuerdo? " + (acuerdo ? "Sí" : "No"));
-    }
+         
+         System.out.println("Resultado 5:" + ((boolean) facts.getValue("ok5")? " regla cumplida" : " regla incumplida"));
+         System.out.println("Resultado 6:" + ((boolean) facts.getValue("ok6")? " regla cumplida" : " regla incumplida"));
+         System.out.println("Resultado 7:" + ((boolean) facts.getValue("ok7")? " regla cumplida" : " regla incumplida"));
+         System.out.println("Resultado 8: prioridad -> " + (int) facts.getValue("ok8"));
+         System.out.println("Resultado 9: descuento -> " + (int) facts.getValue("ok9"));       
+         
+     }
 }

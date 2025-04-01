@@ -2,11 +2,9 @@ package rules;
 
 import com.deliveredtechnologies.rulebook.annotation.*;
 import com.deliveredtechnologies.rulebook.Fact;
-import com.deliveredtechnologies.rulebook.NameValueReferableMap;
-import java.util.Optional;
 
 @Rule(order = 1)
-public class RN_ValidacionLicencias {
+public class RN01_ValidacionLicencias {
 	
 	@Given("licencia")
 	private Fact<Boolean> licencia;
@@ -20,7 +18,7 @@ public class RN_ValidacionLicencias {
     }
 
     @Then
-    public void aplicarDescuento() {
+    public void reglaCorrecta() {
         ok.setValue(true);
     }
 }
