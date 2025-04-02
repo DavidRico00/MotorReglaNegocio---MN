@@ -1,6 +1,7 @@
 package rules;
 
 import com.deliveredtechnologies.rulebook.Fact;
+import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
@@ -10,11 +11,9 @@ import pkg.MotorReglas.Evento;
 
 @Rule(order = 7)
 public class RN07_RetencionPagos {
-	@Given("evento")
-	private Fact<Evento> evento;
 	
-	@Given("ok7")
-    private Fact<Boolean> ok;
+	@Given("Evento")
+	private Fact<Evento> evento;
 
     @When
     public boolean retencionPago() {
@@ -22,7 +21,7 @@ public class RN07_RetencionPagos {
     }
 
     @Then
-    public void reglaCorrecta() {
-        ok.setValue(true);
+    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
+    	facts.setValue("RN07", true);
     }
 }
