@@ -1,6 +1,7 @@
 package rules;
 
 import com.deliveredtechnologies.rulebook.Fact;
+import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
@@ -10,11 +11,9 @@ import pkg.MotorReglas.GrupoMusical;
 
 @Rule(order = 8)
 public class RN08_FiltracionBusqueda {
-	@Given("grupoMusical")
-	private Fact<GrupoMusical> grupo;
 	
-	@Given("ok8")
-    private Fact<Integer> ok;
+	@Given("GrupoMusical")
+	private Fact<GrupoMusical> grupo;
 
     @When
     public boolean valoracion() {
@@ -22,17 +21,17 @@ public class RN08_FiltracionBusqueda {
     }
 
     @Then
-    public void reglaCorrecta() {
+    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
         GrupoMusical grupoMusical = grupo.getValue();
         
         if(grupoMusical.getCalificacionMedia() >= 0 && grupoMusical.getCalificacionMedia() < 3) {
-			ok.setValue(1);
+        	facts.setValue("RN08", 1);
 		} else if(grupoMusical.getCalificacionMedia() >= 3 && grupoMusical.getCalificacionMedia() < 5) {
-			ok.setValue(2);
+			facts.setValue("RN08", 2);
 		} else if(grupoMusical.getCalificacionMedia() >= 5 && grupoMusical.getCalificacionMedia() < 8) {
-			ok.setValue(3);
+			facts.setValue("RN08", 3);
 		} else {
-			ok.setValue(4);
+			facts.setValue("RN08", 4);
 		}
     }
 }
