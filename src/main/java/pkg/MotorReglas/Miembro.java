@@ -5,13 +5,7 @@ public class Miembro {
 	private String apellido;
 	private int edad;
 	private boolean aprobacion;
-	
-	public Miembro(String nombre, String apellido, int edad) {
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.edad = edad;
-	}
-	
+
 	public Miembro(String nombre, String apellido, int edad, boolean aprobacion) {
 		super();
 		this.nombre = nombre;
