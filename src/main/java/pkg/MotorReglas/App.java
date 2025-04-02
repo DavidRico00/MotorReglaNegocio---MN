@@ -16,22 +16,32 @@ public class App
     	 RuleBook ruleBook = new RuleBookRunner("rules");
          NameValueReferableMap<Object> facts = new FactMap<>();
          
-         Miembro miembro1 = new Miembro("Jose Ángel", "Romero Delgado", 21, false);
-         Miembro miembro2 = new Miembro("David", "Rico Mayoral", 17, true);
-         List<Miembro> lista_miembros = new ArrayList<Miembro>();
+         //Declaracion de miembro
+         List<Miembro> miembros = new ArrayList<Miembro>();
+         Miembro m1 = new Miembro("Jose Ángel", "Romero Delgado", 21);
+         miembros.add(m1);
+         Miembro m2 = new Miembro("David", "Rico Mayoral", 17);
+         m2.setAprobacion(true);
+         miembros.add(m2);
+
+         //Declaracion de grup musical
+         GrupoMusical g1 = new GrupoMusical(miembros, "FullMusic", "Trap");
+         g1.setConciertosRealizados(12);
+         g1.setCalificacionMedia(5.6f);
          
-         lista_miembros.add(miembro1);
-         lista_miembros.add(miembro2);
+         //Declaracion de local
+         Local l1 = new Local("Melón S.L", true, 12, 150f); 
          
-         GrupoMusical grupo1 = new GrupoMusical(lista_miembros, "FullMusic", "Trap", 5, 8);
-         
-         Local local = new Local("Melón S.L", true, 12);
-         
-         Local local2 = new Local("Venta el Potro", true, 0);
-         
-         Evento evento = new Evento(grupo1, local, true, 8, 9, false);
-         
-         // Evento evento2 = new Evento(grupo1, local2, false, 8, 5, false);
+         //Declaracion de evento
+         Evento e1 = new Evento(g1, l1);
+         e1.setTerminado(false);
+         e1.setModificacion(false);
+         e1.setNotificado(false);
+         e1.setIncumplimientoContrato(false);
+         e1.setAcuerdoConfirmado(false);
+         e1.setCalifGroupToLocal(0);
+         e1.setCalifLocaltoGroup(0);
+         e1.setPrecioNegociado(0.0f);       
          
          ruleBook.run(facts);
      }

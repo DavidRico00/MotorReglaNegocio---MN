@@ -7,10 +7,16 @@ public class GrupoMusical {
 	private String nombre;
 	private String genero;
 	private int conciertosRealizados;
-	private int calificacionMedia;
+	private float calificacionMedia;
 	
-	public GrupoMusical(List<Miembro> miembros, String nombre, String genero, int conciertosRealizados, int calificacionMedia) {
+	public GrupoMusical(List<Miembro> miembros, String nombre, String genero) {
 		super();
+		this.miembros = miembros;
+		this.nombre = nombre;
+		this.genero = genero;
+	}
+
+	public GrupoMusical(List<Miembro> miembros, String nombre, String genero, int conciertosRealizados, float calificacionMedia) {
 		this.miembros = miembros;
 		this.nombre = nombre;
 		this.genero = genero;
@@ -50,11 +56,11 @@ public class GrupoMusical {
 		this.conciertosRealizados = conciertosRealizados;
 	}
 	
-	public int getCalificacionMedia() {
+	public float getCalificacionMedia() {
 		return calificacionMedia;
 	}
 	
-	public void setCalificacionMedia(int calificacionMedia) {
+	public void setCalificacionMedia(float calificacionMedia) {
 		this.calificacionMedia = calificacionMedia;
 	}
 	

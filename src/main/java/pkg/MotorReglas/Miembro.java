@@ -6,12 +6,12 @@ public class Miembro {
 	private int edad;
 	private boolean aprobacion;
 
-	public Miembro(String nombre, String apellido, int edad, boolean aprobacion) {
+	public Miembro(String nombre, String apellido, int edad) {
 		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
-		this.aprobacion = aprobacion;
+		this.aprobacion = false;
 	}
 
 	public String getNombre() {
