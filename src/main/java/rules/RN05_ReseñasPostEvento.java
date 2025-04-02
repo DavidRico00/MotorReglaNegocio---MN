@@ -1,6 +1,7 @@
 package rules;
 
 import com.deliveredtechnologies.rulebook.Fact;
+import com.deliveredtechnologies.rulebook.NameValueReferableMap;
 import com.deliveredtechnologies.rulebook.annotation.Given;
 import com.deliveredtechnologies.rulebook.annotation.Rule;
 import com.deliveredtechnologies.rulebook.annotation.Then;
@@ -11,12 +12,9 @@ import pkg.MotorReglas.Evento;
 @Rule(order = 5)
 public class RN05_ReseñasPostEvento {
 
-	@Given("evento")
+	@Given("Evento")
 	private Fact<Evento> evento;
 	
-	@Given("ok5")
-    private Fact<Boolean> ok;
-
     @When
     public boolean isReseñaRealizada() {
     	Evento e = evento.getValue();
@@ -24,7 +22,7 @@ public class RN05_ReseñasPostEvento {
     }
 
     @Then
-    public void reglaCorrecta() {
-        ok.setValue(true);
+    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
+    	facts.setValue("RN05", true);
     }
 }

@@ -23,8 +23,7 @@ public class RN03_ConfirmacionEvento {
     }
 
     @Then
-    public void validarAccion() {
-        Notificacion.setValue(true); // Se requiere notificación
-        System.out.println("Notificación enviada a ambas partes: " + Accion.getValue());
+    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
+        facts.setValue("RN03", true);
     }
 }

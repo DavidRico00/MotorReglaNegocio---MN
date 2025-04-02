@@ -23,7 +23,7 @@ public class RN04_NegociacionTarifa {
     }
 
     @Then
-    public void negociar() {
+    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
         // Si el acuerdo no está confirmado, se negocia
         if (tarifa.getValue() <= presupuesto.getValue()) {
             acuerdoConfirmado.setValue(true); // Se confirma el acuerdo si la tarifa es menor o igual al presupuesto
