@@ -14,6 +14,9 @@ public class RN07_RetencionPagos {
 	
 	@Given("Evento")
 	private Fact<Evento> evento;
+	
+	@Given("RN07")
+    private Fact<Boolean> rn;
 
     @When
     public boolean retencionPago() {
@@ -21,7 +24,7 @@ public class RN07_RetencionPagos {
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
-    	facts.setValue("RN07", true);
+    public void reglaCorrecta() {
+    	rn.setValue(true);
     }
 }

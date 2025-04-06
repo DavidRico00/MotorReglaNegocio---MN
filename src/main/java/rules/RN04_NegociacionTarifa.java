@@ -13,16 +13,18 @@ public class RN04_NegociacionTarifa {
 
     @Given("Evento")
     private Fact<Evento> evento;
+    
+    @Given("RN04")
+    private Fact<Boolean> rn;
 
     @When
     public boolean enNegociacion() {
     	Evento evento = this.evento.getValue();
-    	
-        return evento.isAcuerdoConfirmado() && evento.getPrecioNegociado()>evento.getLocal().getPresupuesto();
+    	return evento.isAcuerdoConfirmado() && evento.getPrecioNegociado() > evento.getLocal().getPresupuesto();
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
-    	facts.setValue("RN04", true);
+    public void reglaCorrecta() {
+    	rn.setValue(true);
     }
 }

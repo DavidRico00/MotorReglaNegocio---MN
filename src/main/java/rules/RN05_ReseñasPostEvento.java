@@ -15,6 +15,9 @@ public class RN05_ReseñasPostEvento {
 	@Given("Evento")
 	private Fact<Evento> evento;
 	
+	@Given("RN05")
+    private Fact<Boolean> rn;
+	
     @When
     public boolean isReseñaRealizada() {
     	Evento e = evento.getValue();
@@ -22,7 +25,7 @@ public class RN05_ReseñasPostEvento {
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
-    	facts.setValue("RN05", true);
+    public void reglaCorrecta() {
+    	rn.setValue(true);
     }
 }

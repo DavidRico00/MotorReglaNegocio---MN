@@ -14,8 +14,11 @@ import java.util.Optional;
 @Rule(order = 1)
 public class RN02_ValidacionEdad {
 	
-	@Given("Grupo")
+	@Given("GrupoMusical")
 	private Fact<GrupoMusical> grupo;
+	
+	@Given("RN02")
+    private Fact<Boolean> rn;
 
     @When
     public boolean validarEdad() {
@@ -29,7 +32,7 @@ public class RN02_ValidacionEdad {
 				break;
 			}
 			
-			if(miembro.getEdad() > 16 && miembro.getEdad() < 18 && !miembro.isAprobacion()) {
+			if(miembro.getEdad() >= 16 && miembro.getEdad() < 18 && !miembro.isAprobacion()) {
 				correcto = false;
 				break;
 			}
@@ -39,7 +42,7 @@ public class RN02_ValidacionEdad {
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
-        facts.setValue("RN02", true);
+    public void reglaCorrecta() {
+    	rn.setValue(true);
     }
 }

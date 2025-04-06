@@ -14,6 +14,9 @@ public class RN08_FiltracionBusqueda {
 	
 	@Given("GrupoMusical")
 	private Fact<GrupoMusical> grupo;
+	
+	@Given("RN08")
+    private Fact<Integer> rn;
 
     @When
     public boolean valoracion() {
@@ -21,17 +24,17 @@ public class RN08_FiltracionBusqueda {
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
+    public void reglaCorrecta() {
         GrupoMusical grupoMusical = grupo.getValue();
         
         if(grupoMusical.getCalificacionMedia() >= 0 && grupoMusical.getCalificacionMedia() < 3) {
-        	facts.setValue("RN08", 1);
+        	rn.setValue(1);
 		} else if(grupoMusical.getCalificacionMedia() >= 3 && grupoMusical.getCalificacionMedia() < 5) {
-			facts.setValue("RN08", 2);
+			rn.setValue(2);
 		} else if(grupoMusical.getCalificacionMedia() >= 5 && grupoMusical.getCalificacionMedia() < 8) {
-			facts.setValue("RN08", 3);
+			rn.setValue(3);
 		} else {
-			facts.setValue("RN08", 4);
+			rn.setValue(4);
 		}
     }
 }

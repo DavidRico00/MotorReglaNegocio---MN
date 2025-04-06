@@ -12,16 +12,18 @@ public class RN03_ConfirmacionEvento {
 	
 	@Given("Evento")
 	private Fact<Evento> evento;
+	
+	@Given("RN03")
+    private Fact<Boolean> rn;
 
     @When
     public boolean requiereValidacion() {
     	Evento evento = this.evento.getValue();
-    	
         return evento.isModificacion() && evento.isNotificado();
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
-        facts.setValue("RN03", true);
+    public void reglaCorrecta() {
+    	rn.setValue(true);
     }
 }

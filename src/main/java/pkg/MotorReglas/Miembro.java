@@ -7,11 +7,13 @@ public class Miembro {
 	private boolean aprobacion;
 
 	public Miembro(String nombre, String apellido, int edad) {
-		super();
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.edad = edad;
-		this.aprobacion = false;
+		if (edad >= 18)
+			this.aprobacion = true;
+		else
+			this.aprobacion = false;
 	}
 
 	public String getNombre() {

@@ -11,6 +11,9 @@ public class RN01_ValidacionLicencias {
 	
 	@Given("Local")
 	private Fact<Local> local;
+	
+	@Given("RN01")
+    private Fact<Boolean> rn;
 
     @When
     public boolean tieneLicencia() {
@@ -18,7 +21,7 @@ public class RN01_ValidacionLicencias {
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
-        facts.setValue("RN01", true);
+    public void reglaCorrecta() {
+        rn.setValue(true);
     }
 }

@@ -14,6 +14,9 @@ public class RN06_IncumplimientoContrato {
 	
 	@Given("Evento")
 	private Fact<Evento> evento;
+	
+	@Given("RN06")
+    private Fact<Boolean> rn;
 
     @When
     public boolean incumplimientoRealizado() {
@@ -21,7 +24,7 @@ public class RN06_IncumplimientoContrato {
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
-    	facts.setValue("RN06", true);
+    public void reglaCorrecta() {
+    	rn.setValue(true);
     }
 }

@@ -14,6 +14,9 @@ public class RN09_Descuentos {
 	
 	@Given("GrupoMusical")
 	private Fact<GrupoMusical> grupo;
+	
+	@Given("RN09")
+    private Fact<Integer> rn;
 
     @When
     public boolean valoracion() {
@@ -21,17 +24,15 @@ public class RN09_Descuentos {
     }
 
     @Then
-    public void reglaCorrecta(NameValueReferableMap<Object> facts) {
+    public void reglaCorrecta() {
         GrupoMusical grupoMusical = grupo.getValue();
         
         if(grupoMusical.getConciertosRealizados() >= 1000 ) {
-        	facts.setValue("RN09", 15);
+        	rn.setValue(15);
 		} else if(grupoMusical.getConciertosRealizados() >= 300) {
-			facts.setValue("RN09", 10);
+			rn.setValue(10);
 		} else if(grupoMusical.getCalificacionMedia() >= 100) {
-			facts.setValue("RN09", 5);
-		} else {
-			facts.setValue("RN09", 0);
+			rn.setValue(5);
 		}
     }
 }
